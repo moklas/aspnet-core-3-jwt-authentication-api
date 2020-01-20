@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using WebApi.Services;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading;
 using WebApi.Models;
-using System.Linq;
+using WebApi.Services;
 
 namespace WebApi.Controllers
 {
@@ -26,6 +26,8 @@ namespace WebApi.Controllers
 
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
+
+            Thread.Sleep(5000);
 
             return Ok(user);
         }
